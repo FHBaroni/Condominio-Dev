@@ -62,15 +62,16 @@ namespace CondominioDev.Api.Data
                 .IsRequired();
 
             modelBuilder.Entity<Habitante>()
-                .HasOne<Condominio>(h => h.Condominio)
-                .WithMany(c => c.Habitante)
-                .HasForeignKey(h => h.CondominioId);
+               .HasOne(h => h.Condominio)
+               .WithMany(c => c.Habitante)
+               .HasForeignKey(h => h.CondominioId)
+               .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<Habitante>().HasData(new[]
-            {
-                new Habitante(1, "Luis", "Melo", new DateTime(2000, 10, 22), 2500, 01425836998, 600)
-            }
-                );
+            //modelBuilder.Entity<Habitante>().HasData(new[]
+            //{
+            //    new Habitante(1, "Luis", "Melo", new DateTime(2000, 10, 22), 2500, 56998, 600)
+            //}
+            //    );
 
 
             //condominio
@@ -85,6 +86,11 @@ namespace CondominioDev.Api.Data
                    .HasColumnType("float")
                    .IsRequired();
 
+            //modelBuilder.Entity<Condominio>().HasData(new[]
+            //{
+            //     new Condominio(1)
+            //}
+            //);
         }
     }
 }
