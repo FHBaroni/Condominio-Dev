@@ -33,9 +33,6 @@ namespace CondominioDev.Api.Data.Migrations
                     b.Property<double>("GastoTotal")
                         .HasColumnType("float");
 
-                    b.Property<int>("HabitanteId")
-                        .HasColumnType("int");
-
                     b.Property<decimal>("Orcamento")
                         .HasColumnType("decimal(18,2)");
 
@@ -48,7 +45,6 @@ namespace CondominioDev.Api.Data.Migrations
                         {
                             Id = 1,
                             GastoTotal = 0.0,
-                            HabitanteId = 0,
                             Orcamento = 0m
                         });
                 });
@@ -70,7 +66,7 @@ namespace CondominioDev.Api.Data.Migrations
                     b.Property<double>("CustoCondominio")
                         .HasColumnType("float");
 
-                    b.Property<DateTime?>("DataNacimento")
+                    b.Property<DateTime?>("DataNascimento")
                         .IsRequired()
                         .HasColumnType("date");
 

@@ -31,7 +31,7 @@ namespace CondominioDev.Api.Controllers
             {
                 Nome = body.Nome,
                 Sobrenome = body.Sobrenome,
-                DataNacimento = body.DataNacimento,
+                DataNascimento = body.DataNascimento,
                 Renda = body.Renda,
                 CPF = body.CPF,
                 CondominioId = 1

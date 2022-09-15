@@ -42,7 +42,7 @@ namespace CondominioDev.Api.Data
                 .HasMaxLength(200);
 
             modelBuilder.Entity<Habitante>()
-                .Property(h => h.DataNacimento)
+                .Property(h => h.DataNascimento)
                 .HasColumnType("date")
                 .IsRequired();
 
@@ -66,13 +66,7 @@ namespace CondominioDev.Api.Data
                    .WithMany(condominio => condominio.Habitante)
                    .HasForeignKey(habitante => habitante.CondominioId);
 
-            //modelBuilder.Entity<Habitante>().HasData(new[]
-            //{
-            //    new Habitante( 1, "Luis", "Melo", new DateTime(2000, 10, 22), 2500, 56998, 600)
-            //}
-            //    );
-
-            //condominio
+            //Condominio
             modelBuilder.Entity<Condominio>()
                 .ToTable("Condominio");
 
@@ -84,23 +78,11 @@ namespace CondominioDev.Api.Data
                    .HasColumnType("float")
                    .IsRequired();
 
-            //modelBuilder.Entity<Habitante>().HasData(new[]
-            //{
-            //    new Habitante( 1, "Luis", "Melo", new DateTime(2000, 10, 22), 2500, 56998, 600)
-            //}
-            //    );
-
             modelBuilder.Entity<Condominio>().HasData(new[]
             {
                 new Condominio(1)
             }
                 );
-
-            //modelBuilder.Entity<Condominio>()
-            //       .HasMany<Habitante>(condominio => condominio.Habitante)
-            //       .WithOne(habitante => habitante.Condominio)
-            //       .HasForeignKey(x => x.CondominioId);
-
 
         }
     }

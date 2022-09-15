@@ -4,7 +4,7 @@
     {
         public string Nome { get; set; }
         public string Sobrenome { get; set; }
-        public DateTime? DataNacimento { get; set; }
+        public DateTime? DataNascimento { get; set; }
         public decimal Renda { get; set; }
         public int CPF { get; set; }
 

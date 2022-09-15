@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CondominioDev.Api.Data.Migrations
 {
-    public partial class migration1 : Migration
+    public partial class migrationInicial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,8 +16,7 @@ namespace CondominioDev.Api.Data.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Orcamento = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    GastoTotal = table.Column<double>(type: "float", nullable: false),
-                    HabitanteId = table.Column<int>(type: "int", nullable: false)
+                    GastoTotal = table.Column<double>(type: "float", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -32,7 +31,7 @@ namespace CondominioDev.Api.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nome = table.Column<string>(type: "varchar(200)", maxLength: 200, nullable: false),
                     Sobrenome = table.Column<string>(type: "varchar(200)", maxLength: 200, nullable: true),
-                    DataNacimento = table.Column<DateTime>(type: "date", nullable: false),
+                    DataNascimento = table.Column<DateTime>(type: "date", nullable: false),
                     Renda = table.Column<double>(type: "float", nullable: false),
                     CPF = table.Column<int>(type: "int", nullable: false),
                     CustoCondominio = table.Column<double>(type: "float", nullable: false),
@@ -51,8 +50,8 @@ namespace CondominioDev.Api.Data.Migrations
 
             migrationBuilder.InsertData(
                 table: "Condominio",
-                columns: new[] { "Id", "GastoTotal", "HabitanteId", "Orcamento" },
-                values: new object[] { 1, 0.0, 0, 0m });
+                columns: new[] { "Id", "GastoTotal", "Orcamento" },
+                values: new object[] { 1, 0.0, 0m });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Habitantes_CondominioId",
