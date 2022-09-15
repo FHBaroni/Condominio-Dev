@@ -33,7 +33,9 @@ namespace CondominioDev.Api.Controllers
                 Sobrenome = body.Sobrenome,
                 DataNacimento = body.DataNacimento,
                 Renda = body.Renda,
-                CPF = body.CPF
+                CPF = body.CPF,
+                CondominioId = 1
+
             };
             _context.Habitante.Add(novohabitante);
             _context.SaveChanges();

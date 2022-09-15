@@ -84,6 +84,17 @@ namespace CondominioDev.Api.Data
                    .HasColumnType("float")
                    .IsRequired();
 
+            //modelBuilder.Entity<Habitante>().HasData(new[]
+            //{
+            //    new Habitante( 1, "Luis", "Melo", new DateTime(2000, 10, 22), 2500, 56998, 600)
+            //}
+            //    );
+
+            modelBuilder.Entity<Condominio>().HasData(new[]
+            {
+                new Condominio(1)
+            }
+                );
 
             //modelBuilder.Entity<Condominio>()
             //       .HasMany<Habitante>(condominio => condominio.Habitante)

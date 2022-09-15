@@ -8,6 +8,9 @@
         public virtual List<Habitante> Habitante { get; set; }
         public virtual int HabitanteId { get; set; }
 
-
+        public Condominio(int id)
+        {
+            Id = id;          
+        }
     }
 }
