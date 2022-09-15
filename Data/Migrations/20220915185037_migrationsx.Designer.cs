@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CondominioDev.Api.Data.Migrations
 {
     [DbContext(typeof(ProjetoDbContext))]
-    [Migration("20220914223511_migrations")]
-    partial class migrations
+    [Migration("20220915185037_migrationsx")]
+    partial class migrationsx
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -44,6 +44,15 @@ namespace CondominioDev.Api.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Condominio", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            GastoTotal = 0.0,
+                            HabitanteId = 0,
+                            Orcamento = 0m
+                        });
                 });
 
             modelBuilder.Entity("CondominioDev.Api.Models.Habitante", b =>
@@ -91,7 +100,7 @@ namespace CondominioDev.Api.Data.Migrations
                     b.HasOne("CondominioDev.Api.Models.Condominio", "Condominio")
                         .WithMany("Habitante")
                         .HasForeignKey("CondominioId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Condominio");
