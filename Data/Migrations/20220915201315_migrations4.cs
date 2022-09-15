@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CondominioDev.Api.Data.Migrations
 {
-    public partial class migrationsx : Migration
+    public partial class migrations4 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -48,11 +48,6 @@ namespace CondominioDev.Api.Data.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
-
-            migrationBuilder.InsertData(
-                table: "Condominio",
-                columns: new[] { "Id", "GastoTotal", "HabitanteId", "Orcamento" },
-                values: new object[] { 1, 0.0, 0, 0m });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Habitantes_CondominioId",

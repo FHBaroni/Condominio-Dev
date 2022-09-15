@@ -5,7 +5,7 @@ namespace CondominioDev.Api.Data
 {
     public class ProjetoDbContext : DbContext
     {
-        private IConfiguration _configuration;
+        private readonly IConfiguration _configuration;
         public ProjetoDbContext(IConfiguration configuration)
         {
             _configuration = configuration;
@@ -62,16 +62,15 @@ namespace CondominioDev.Api.Data
                 .IsRequired();
 
             modelBuilder.Entity<Habitante>()
-               .HasOne<Condominio>(h => h.Condominio)
-               .WithMany(c => c.Habitante)
-               .HasForeignKey(h => h.CondominioId);
+                   .HasOne<Condominio>(habitante => habitante.Condominio)
+                   .WithMany(condominio => condominio.Habitante)
+                   .HasForeignKey(habitante => habitante.CondominioId);
 
             //modelBuilder.Entity<Habitante>().HasData(new[]
             //{
-            //    new Habitante(1, "Luis", "Melo", new DateTime(2000, 10, 22), 2500, 56998, 600)
+            //    new Habitante( 1, "Luis", "Melo", new DateTime(2000, 10, 22), 2500, 56998, 600)
             //}
             //    );
-
 
             //condominio
             modelBuilder.Entity<Condominio>()
@@ -85,11 +84,13 @@ namespace CondominioDev.Api.Data
                    .HasColumnType("float")
                    .IsRequired();
 
-            modelBuilder.Entity<Condominio>().HasData(new[]
-            {
-                 new Condominio(1)
-            }
-            );
+
+            //modelBuilder.Entity<Condominio>()
+            //       .HasMany<Habitante>(condominio => condominio.Habitante)
+            //       .WithOne(habitante => habitante.Condominio)
+            //       .HasForeignKey(x => x.CondominioId);
+
+
         }
     }
 }

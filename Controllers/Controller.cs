@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace CondominioDev.Api.Controllers
 {
     [ApiController]
-    [Route("api/Habitantes")]
+    [Route("api/habitantes")]
     public class HabitantesController : ControllerBase
     {
         private readonly ProjetoDbContext _context;
@@ -35,9 +35,9 @@ namespace CondominioDev.Api.Controllers
                 Renda = body.Renda,
                 CPF = body.CPF
             };
-            _context.Add(novohabitante);
+            _context.Habitante.Add(novohabitante);
             _context.SaveChanges();
-            return Ok();
+            return Created("api/habitantes", novohabitante);
 
         }
     }
