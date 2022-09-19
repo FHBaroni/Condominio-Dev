@@ -80,7 +80,7 @@ namespace CondominioDev.Api.Data
 
             modelBuilder.Entity<Condominio>().HasData(new[]
             {
-                new Condominio(1)
+                new Condominio(1, 1200, 700)
             }
                 );
 
