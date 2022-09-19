@@ -1,0 +1,21 @@
+CREATE TABLE Condomíno 
+( 
+ GastoTotal FLOAT NOT NULL,  
+ Orçamento FLOAT NOT NULL,  
+ Id INT PRIMARY KEY,  
+ IdHabitante INT,  
+); 
+
+CREATE TABLE Habitante 
+( 
+ Id INT PRIMARY KEY AUTO_INCREMENT,  
+ Nome VARCHAR(n) NOT NULL,  
+ Sobrenome VARCHAR(n) NOT NULL,  
+ DataNascimento DATE NOT NULL,  
+ Renda FLOAT,  
+ CPF INT NOT NULL,  
+ CustoCondominio FLOAT NOT NULL,  
+ UNIQUE (CPF)
+); 
+
+ALTER TABLE Condomíno ADD FOREIGN KEY(IdHabitante) REFERENCES Habitante (IdHabitante)
